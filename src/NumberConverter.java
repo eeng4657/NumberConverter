@@ -36,14 +36,7 @@ public class NumberConverter
             {
                 int i = num % newBase;
                 num /= newBase;
-                if(i != 0)
-                {
-                    con = i + con;
-                }
-                else
-                {
-                    con = "0" + con;
-                }
+                con = i + con;
             }
         return con;
     }
