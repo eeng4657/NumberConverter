@@ -29,15 +29,26 @@ public class NumberConverter
         return o;
     }
 
-    public String genBase10(int newBase)
+    public String genBaseRule(int newBase)
     {
         String con = "";
-        while(num > 0)
+        int i = 0;
+        while (i < displayOriginalNumber().length() - 1)
+        {
+            int a = (Integer.parseInt(displayOriginalNumber().substring(displayOriginalNumber().length() - (displayOriginalNumber().length() - (1 + i)),displayOriginalNumber().length() - (1 + i)))) * (int)Math.pow(base, i);
+            con += a;
+            i++;
+            //havent tested yet, need to test
+        }
+        if (newBase != 10)
+        {
+            while (num > 0)
             {
-                int i = num % newBase;
+                int b = num % newBase;
                 num /= newBase;
-                con = i + con;
+                con = b + con;
             }
+        }
         return con;
     }
  
@@ -56,7 +67,7 @@ public class NumberConverter
         String bi = "";
         if(base == 10)
         {
-            bi = genBase10(2);
+            bi = genBaseRule(2);
         }
         return bi;
     }
@@ -66,7 +77,7 @@ public class NumberConverter
         String oct = "";
         if(base == 10)
         {
-            oct = genBase10(8);
+            oct = genBaseRule(8);
         }
         return oct;
     }
