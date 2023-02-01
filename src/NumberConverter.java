@@ -29,18 +29,19 @@ public class NumberConverter
         return o;
     }
 
+
     public String genBaseRule(int newBase)
     {
         String con = "";
-        int i = 0;
-        while (i < displayOriginalNumber().length() - 1)
+        int i = 1;
+        int a = 0;
+        while (i < digits.length) //converts to decimal, incomplete //13base10 should return 1101base2, returns 11013 rn
         {
-            int a = (Integer.parseInt(displayOriginalNumber().substring(displayOriginalNumber().length() - (displayOriginalNumber().length() - (1 + i)),displayOriginalNumber().length() - (1 + i)))) * (int)Math.pow(base, i);
+            a += digits[digits.length - i]*(Math.pow(base, i-1));  //sum of each digit times the original base to the power of the digit number
             con += a;
             i++;
-            //havent tested yet, need to test
         }
-        if (newBase != 10)
+        if (newBase != 10)  //converts from decimal
         {
             while (num > 0)
             {
@@ -57,28 +58,18 @@ public class NumberConverter
         return digits;
     }
  
-    public int[] convertToDecimal()
+    public String convertToDecimal()
     {
-        return null;
+        return genBaseRule(10);
     }
  
     public String convertToBinary()
     {
-        String bi = "";
-        if(base == 10)
-        {
-            bi = genBaseRule(2);
-        }
-        return bi;
+        return genBaseRule(2);
     }
  
     public String convertToOctal()
     {
-        String oct = "";
-        if(base == 10)
-        {
-            oct = genBaseRule(8);
-        }
-        return oct;
+        return genBaseRule(0);
     }
 }
