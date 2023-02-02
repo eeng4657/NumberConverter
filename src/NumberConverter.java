@@ -30,31 +30,33 @@ public class NumberConverter
     }
 
 
+
+
     public String genBaseRule(int newBase)
     {
         String con = "";
         int i = 0;
-        int a = digits.length - 1;
         int b = 0;
-        while (i < digits.length) //converts to decimal, incomplete //13base10 should return 1101base2, returns 11013 rn
+        while (i < digits.length) //converts to decimal
         {
-            b += digits[a-i]*Math.pow(base, i);
+            b += digits[(digits.length-1)-i]*Math.pow(base, i);
             i++;
         }
         con = Integer.toString(b);
-        if (newBase != 10)  //converts from decimal
-        
+        if (newBase != 10) //converts from decimal
+        {
             con = "";
-            while (num > 0)
+            String[] tooBased = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"};
+            while (b > 0)
             {
-                int c = num % newBase;
-                num /= newBase;
-                con = c + con;
-                System.out.println(con);
+                int c = b % newBase;
+                b /= newBase;
+                con = tooBased[c] + con;
             }
-            
+        }
         return con;
     }
+
 
     public int[] getDigits()
     {
