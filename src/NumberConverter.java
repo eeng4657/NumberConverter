@@ -33,26 +33,29 @@ public class NumberConverter
     public String genBaseRule(int newBase)
     {
         String con = "";
-        int i = 1;
-        int a = 0;
+        int i = 0;
+        int a = digits.length - 1;
+        int b = 0;
         while (i < digits.length) //converts to decimal, incomplete //13base10 should return 1101base2, returns 11013 rn
         {
-            a += digits[digits.length - i]*(Math.pow(base, i-1));  //sum of each digit times the original base to the power of the digit number
-            con += a;
+            b += digits[a-i]*Math.pow(base, i);
             i++;
         }
+        con = Integer.toString(b);
         if (newBase != 10)  //converts from decimal
-        {
+        
+            con = "";
             while (num > 0)
             {
-                int b = num % newBase;
+                int c = num % newBase;
                 num /= newBase;
-                con = b + con;
+                con = c + con;
+                System.out.println(con);
             }
-        }
+            
         return con;
     }
- 
+
     public int[] getDigits()
     {
         return digits;
@@ -70,6 +73,6 @@ public class NumberConverter
  
     public String convertToOctal()
     {
-        return genBaseRule(0);
+        return genBaseRule(8);
     }
 }
