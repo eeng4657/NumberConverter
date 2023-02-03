@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.util.Arrays;
+//import java.util.Arrays;
  
 class ConverterRunner
 {
@@ -7,26 +7,25 @@ class ConverterRunner
     {
         System.out.println("Welcome to the Number Converter!");
         System.out.println("--------------------------------");
-        System.out.print("Enter the base of your number (2, 8 or 10): ");
+        System.out.print("Enter the base of your number (2, 8, 10, or 16): ");
  
         Scanner s = new Scanner(System.in);
         String choice = s.nextLine();
         int base = Integer.parseInt(choice);
  
         System.out.print("Enter your number: ");
-        String number = s.nextLine();
-        int n = Integer.parseInt(number);
- 
+        String n = s.nextLine();
+
         s.close();
  
         NumberConverter nc = new NumberConverter(n, base);
-        int[] digits = nc.getDigits();
 
 
         if(base == 2)
         {
             System.out.println("\nOctal Number: " + nc.genBaseRule(8));
             System.out.println("Decimal Number: " + nc.genBaseRule(10));
+            System.out.println("Hexadecimal Number: " + nc.genBaseRule(16));
         }
 
 
@@ -34,6 +33,7 @@ class ConverterRunner
         {
             System.out.println("\nBinary Number: " + nc.genBaseRule(2));
             System.out.println("Decimal Number: " + nc.genBaseRule(10));
+            System.out.println("Hexadecimal Number: " + nc.genBaseRule(16));
         }
 
 
@@ -41,10 +41,14 @@ class ConverterRunner
         {
             System.out.println("\nBinary Number: " + nc.genBaseRule(2));
             System.out.println("Octal Number: " + nc.genBaseRule(8));
+            System.out.println("Hexadecimal Number: " + nc.genBaseRule(16));
         }
 
-
-        System.out.println("\nDigit array: " + Arrays.toString(digits));
-        System.out.println("Number: " + nc.displayOriginalNumber());
+        else if(base == 16)
+        {
+            System.out.println("\nBinary Number: " + nc.genBaseRule(2));
+            System.out.println("Octal Number: " + nc.genBaseRule(8));
+            System.out.println("Decimal Number: " + nc.genBaseRule(10));
+        }
     }
 }
