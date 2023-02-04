@@ -21,54 +21,6 @@ class ConverterRunner
  
         System.out.print("Enter your number: ");
         String n = s.nextLine();
-        /*boolean hasLetter = false;
-        String number = "";
-        for (int i = 0; i < n.length(); i ++)
-        {
-            if (Character.isLetter(n.charAt(i)))
-            {
-                hasLetter = true;
-            }
-        }
-
-        if (hasLetter == false)
-        {
-            if (choice.equals("2"))
-            {
-                for (int i = 0; i < n.length(); i ++)
-                {
-                    while ((Integer.parseInt(n.substring(i,i+1)) > 1) || ((Integer.parseInt(n.substring(i,i+1)) < 0)))
-                {
-                    System.out.println("Sorry, this number contains incorrect digit(s) for this base.");
-                    System.out.print("Enter your number: ");
-                    number = s.nextLine();
-                }
-                }
-            }
-            if (choice.equals("8"))
-            {
-                while ((Integer.parseInt(n) > 7) || (Integer.parseInt(n) < 0))
-                {
-                    System.out.println("Sorry, this number contains incorrect digit(s) for this base.");
-                    System.out.print("Enter your number: ");
-                    number = s.nextLine();
-                }
-            }
-            if (choice.equals("10"))
-            {
-                while ((Integer.parseInt(n) > 9) || (Integer.parseInt(n) < 0))
-                {
-                    System.out.println("Sorry, this number contains incorrect digit(s) for this base.");
-                    System.out.print("Enter your number: ");
-                    number = s.nextLine();
-                }
-            }
-            n = number;
-        }
-        else
-        {
-            System.out.println("Invalid Input");
-        }*/
 
         s.close();
  
