@@ -25,17 +25,18 @@ class ConverterRunner
         s.close();
  
         NumberConverter nc = new NumberConverter(n, base);
+        Scanner scanner = new Scanner(System.in);
 
 
         if(base == 2)
         {
             for (int i = 0; i < n.length(); i ++)
                 {
-                    while ((Integer.parseInt(n.substring(i,i+1)) > 7) || ((Integer.parseInt(n.substring(i,i+1)) < 0)))
+                    while ((Integer.parseInt(n.substring(i,i+1)) > 1) || ((Integer.parseInt(n.substring(i,i+1)) < 0)))
                     {
                         System.out.println("Sorry, this number contains incorrect digit(s) for this base.");
                         System.out.print("Enter your number: ");
-                        n = s.nextLine();
+                        n = scanner.nextLine();
                     }
                 }
             System.out.println("\nOctal Number: " + nc.genBaseRule(8));
@@ -52,7 +53,7 @@ class ConverterRunner
                     {
                         System.out.println("Sorry, this number contains incorrect digit(s) for this base.");
                         System.out.print("Enter your number: ");
-                        n = s.nextLine();
+                        n = scanner.nextLine();
                     }
                 }
             System.out.println("\nBinary Number: " + nc.genBaseRule(2));
@@ -67,7 +68,7 @@ class ConverterRunner
                     {
                         System.out.println("Sorry, this number contains incorrect digit(s) for this base.");
                         System.out.print("Enter your number: ");
-                        n = s.nextLine();
+                        n = scanner.nextLine();
                     }
                 }
             System.out.println("\nBinary Number: " + nc.genBaseRule(2));
