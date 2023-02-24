@@ -1,38 +1,30 @@
 import java.util.ArrayList;
-//import java.util.Arrays;
-
 
 public class NumberConverter
 {
     ArrayList<String> digits;
     int base;
     int num;
- 
-    /*public NumberConverter(int number, int base)
-    {
-        num = number;
-        String numberAsString = Integer.toString(number);
-        digits = new int[numberAsString.length()];
-        for (int i = 0; i < numberAsString.length(); i++)
-        {
-            String single = numberAsString.substring(i,i+1);
-            int d = Integer.parseInt(single);
-            digits[i] = d;
-        }
-        this.base = base;
-    }*/
-
 
     public NumberConverter(String number, int base)
     {
         //String[] digits = new String[number.length()]; (old array)
-        digits = new ArrayList<String>();
+        /*ArrayList <String>*/ digits = new ArrayList<String>();
         for (int i = 0; i < number.length(); i++)
         {
             //String single = number.substring(i,i+1);
             digits.add(number.substring(i,i+1));
         }
         this.base = base;
+    }
+
+    public NumberConverter(String number)
+    {
+        digits = new ArrayList<String>();
+        for (int i = 0; i < number.length(); i++)
+        {
+            digits.add(number.substring(i,i+1));
+        }
     }
  
     public String displayOriginalNumber()
@@ -46,7 +38,6 @@ public class NumberConverter
         return o;
     }
 
-
     public String genBaseRule(int newBase) //this would work for bases 1 to 64 if it actually worked,can only convert to hexa, can't convert from
     {
         String con = "";
@@ -59,7 +50,7 @@ public class NumberConverter
         {
             for(int k = 0; k < tooBased.length; k++) //every value of tooBased is searched for every value of digits, could be made quicker with if statements
             {
-                if(digits.get(m) == tooBased[k]) //if the current element at index m in digits is the same as the current element at index k in tooBased, the element at index m of digits is replaced k, the index of corresponding value from tooBased
+                if(digits.get(m).equals(tooBased[k])) //if the current element at index m in digits is the same as the current element at index k in tooBased, the element at index m of digits is replaced k, the index of corresponding value from tooBased
                 {
                     digits.set(m,Integer.toString(k));//not changing letter to number
                 }
@@ -86,8 +77,18 @@ public class NumberConverter
         return con;
     }
 
-
-
+    public String anyBase(String first, int destBase)
+    {
+        String[] allBases = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "+", "/"};
+        String str = "";
+        while (Integer.parseInt(first) > 0)
+        {
+            int i = Integer.parseInt(first) % destBase;
+            first = Integer.toString(Integer.parseInt(first) / destBase);
+            str = allBases[i] + str;
+        }
+        return str;
+    }
 
     public ArrayList<String> getDigits()
     {
