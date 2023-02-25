@@ -3,7 +3,7 @@ class ConverterRunner
 {
     public static void main(String[] args)
     {
-        System.out.println("Welcome to the Number Converter!\nWould you like to\n(1) Convert from base to base?\n(2) Convert a number of your choosing to any base of your choosing up to base 64?");
+        System.out.print("Welcome to the Number Converter!\nWould you like to\n(1) Convert from base to base?\n(2) Convert a number of your choosing to any base of your choosing up to base 64?\nYour choice: ");
         Scanner s = new Scanner(System.in);
         String select = s.nextLine();
 
@@ -15,7 +15,7 @@ class ConverterRunner
             while (!choice.equals("2") && !choice.equals("8") && !choice.equals("10") && !choice.equals("16"))
             {
                 System.out.println("Sorry, this base is not available.");
-                System.out.print("Enter the base of your number (2, 8 or 10): ");
+                System.out.print("Enter the base of your number (2, 8, 10 or 16): ");
                 choice = s.nextLine();
             }
     
