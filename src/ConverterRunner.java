@@ -1,5 +1,4 @@
 import java.util.Scanner;
- 
 class ConverterRunner
 {
     public static void main(String[] args)
@@ -28,7 +27,6 @@ class ConverterRunner
             NumberConverter nc = new NumberConverter(n, base);
             Scanner scanner = new Scanner(System.in);
 
-
             if(base == 2)
             {
                 for (int i = 0; i < n.length(); i ++)
@@ -44,7 +42,6 @@ class ConverterRunner
                 System.out.println("Decimal Number: " + nc.genBaseRule(10));
                 System.out.println("Hexadecimal Number: " + nc.genBaseRule(16));
             }
-
 
             else if(base == 8)
             {
@@ -90,10 +87,10 @@ class ConverterRunner
             Scanner scanner = new Scanner(System.in);
             System.out.print("Enter a number: ");
             String num = scanner.nextLine();
-            NumberConverter nc = new NumberConverter(num);
+            NumberConverter nc = new NumberConverter(num, 10);
             System.out.print("Enter a desired base: ");
             int base = scanner.nextInt();
-            System.out.println("Your number in base " + base + ": " + nc.anyBase(num, base));
+            System.out.println("Your number in base " + base + ": " + nc.genBaseRule(base));
         }
 
         else
